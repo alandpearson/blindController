@@ -19,6 +19,12 @@ Works by assessing reading from LDR and driving blinds accordingly. SunDip featu
 
 
 -------------------------------------------------------------------------------------------
+v1.4
+Many changes including adding the version number in the code and reporting via RF.
+Added WH1080 weather station reporting (optional compile time DEFINE)
+Added DS18b20 temp sensor support
+
+
 v1.3
 
 blindPosition saved to NVRAM every time a move operation completes meaning that if power is lost blind stays in same position on power restore.
