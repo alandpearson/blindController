@@ -1,0 +1,51 @@
+BlindController for Roman or Roller blinds using a JeeNode, LDR, DC motor & limit microswitches
+
+Works by assessing reading from LDR and driving blinds accordingly. SunDip feature will partially close the blinds if it it too bright for longer than SunDipThreshold time and open them again afterwards. Configurable via RF. Different modes of operation possible from manual to fully automated.
+
+(c) 2018 alandpearson@gmail.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+-------------------------------------------------------------------------------------------
+v1.3
+
+blindPosition saved to NVRAM every time a move operation completes meaning that if power is lost blind stays in same position on power restore.
+If blind was in middle of moving during power loss, then blind will move to open position on power restoration
+
+sunDip now exits when < closeThreshold (was < openThreshold)
+Also sunDip exit can now go directly to closed position if in the unlikely situation you go from sundip brightness to closing darkness without any in between
+
+powerOn Reset now exists and will wipe saved blindPosition from NVRAM.
+to use, start blind, remove power within 30 seconds and power up again.
+(the POR flag set in setup and is reset when loop() has been running more that 30 secs).
+
+overrun (bottom limit miss)  and underrun (top limit miss) values lowered to 1% and 3% respectively and are part of blindConfig
+
+v1.2
+Calibration data saved to NVRAM meaning will only recalibrate when requested by hold open+close buttons at startup.
+
+Default behaviour is to open blind at power on
+
+v1.1
+I don't remember ?
+Maybe add RF reporting and control via emonpi ?
+
+
+v1.0
+A long time ago,my memory since faded
+Something that worked... 
+
+
+
